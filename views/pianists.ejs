@@ -11,8 +11,10 @@
       <% pianists.forEach(pianists => { %>
       <li>
         name: <%= pianists.name%>, country: <%= pianists.country %>
-        <button>Edit</button>
-        <button>Delete</button>
+        <a href="/pianists/<%= pianists._id %>"><button>Edit</button></a>
+        <button action="/pianists" method="delete" id="<%= pianists.id%>">
+          Delete
+        </button>
       </li>
       <% }) %>
     </ul>
