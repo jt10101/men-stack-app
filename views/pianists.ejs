@@ -19,8 +19,10 @@
         >
           <button>Delete</button>
         </form>
-        <button onClick="showDialog()">Edit</button>
-        <dialog id="editwindow">
+        <button onClick="showDialog(`editwindow<%= pianists._id%>`)">
+          Edit
+        </button>
+        <dialog id="editwindow<%= pianists._id%>">
           <form
             action="/pianists/<%= pianists._id %>?_method=PUT"
             method="post"
@@ -38,7 +40,9 @@
             <br />
             <button>Submit</button>
           </form>
-          <button onClick="closeDialog()">Close</button>
+          <button onClick="closeDialog(`editwindow<%= pianists._id%>`)">
+            Close
+          </button>
         </dialog>
       </li>
       <% }) %>
@@ -46,13 +50,13 @@
     <a href="/pianists/new"><button>Create</button></a>
 
     <script>
-      const dialog = document.getElementById("editwindow");
-
-      function showDialog() {
-        dialog.show();
+      function showDialog(id) {
+        const dialog = document.getElementById(id);
+        dialog.showModal();
       }
 
-      function closeDialog() {
+      function closeDialog(id) {
+        const dialog = document.getElementById(id);
         dialog.close();
       }
     </script>
