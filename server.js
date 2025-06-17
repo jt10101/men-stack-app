@@ -17,7 +17,7 @@ app.use(methodOverride("_method"));
 await mongoose.connect(process.env.MONGODB_URI);
 
 app.get("", (req, res) => {
-  res.send("<p>Hello World!</p>");
+  res.render("home");
 });
 
 app.get("/pianists", async (req, res) => {
