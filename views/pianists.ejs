@@ -9,7 +9,11 @@
     <h1>Pianists</h1>
     <ul>
       <% pianists.forEach(pianists => { %>
-      <li>name: <%= pianists.name%>, country: <%= pianists.country %></li>
+      <li>
+        name: <%= pianists.name%>, country: <%= pianists.country %>
+        <button>Edit</button>
+        <button>Delete</button>
+      </li>
       <% }) %>
     </ul>
     <a href="/pianists/new"><button>Create</button></a>
