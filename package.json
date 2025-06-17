@@ -1,0 +1,19 @@
+{
+  "name": "men-stack-app",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot server.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.0"
+  }
+}
