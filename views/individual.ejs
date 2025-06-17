@@ -9,5 +9,13 @@
     <h1><%= pianist.name %>'s Details</h1>
     <p>Country: <%= pianist.country %></p>
     <p>ID: <%= pianist._id %></p>
+    <a href="/pianists"><button>Back</button></a>
+    <form
+      action="/pianists/<%= pianist._id %>?_method=DELETE"
+      method="POST"
+      style="display: inline"
+    >
+      <button>Delete</button>
+    </form>
   </body>
 </html>

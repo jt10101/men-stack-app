@@ -12,9 +12,13 @@
       <li>
         name: <%= pianists.name%>, country: <%= pianists.country %>
         <a href="/pianists/<%= pianists._id %>"><button>Edit</button></a>
-        <button action="/pianists" method="delete" id="<%= pianists.id%>">
-          Delete
-        </button>
+        <form
+          action="/pianists/<%= pianists._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button>Delete</button>
+        </form>
       </li>
       <% }) %>
     </ul>
