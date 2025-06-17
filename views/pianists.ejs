@@ -11,7 +11,7 @@
       <% pianists.forEach(pianists => { %>
       <li>
         name: <%= pianists.name%>, country: <%= pianists.country %>
-        <a href="/pianists/<%= pianists._id %>"><button>Edit</button></a>
+        <a href="/pianists/<%= pianists._id %>"><button>View</button></a>
         <form
           action="/pianists/<%= pianists._id %>?_method=DELETE"
           method="POST"
@@ -19,9 +19,42 @@
         >
           <button>Delete</button>
         </form>
+        <button onClick="showDialog()">Edit</button>
+        <dialog id="editwindow">
+          <form
+            action="/pianists/<%= pianists._id %>?_method=PUT"
+            method="post"
+            style="display: inline"
+          >
+            <label for="name">Pianist Name : </label>
+            <input type="text" name="name" placeholder="<%= pianists.name%>" />
+            <br />
+            <label for="country">Country of Birth : </label>
+            <input
+              type="text"
+              name="country"
+              placeholder="<%= pianists.country%>"
+            />
+            <br />
+            <button>Submit</button>
+          </form>
+          <button onClick="closeDialog()">Close</button>
+        </dialog>
       </li>
       <% }) %>
     </ul>
     <a href="/pianists/new"><button>Create</button></a>
+
+    <script>
+      const dialog = document.getElementById("editwindow");
+
+      function showDialog() {
+        dialog.show();
+      }
+
+      function closeDialog() {
+        dialog.close();
+      }
+    </script>
   </body>
 </html>

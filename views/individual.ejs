@@ -17,5 +17,33 @@
     >
       <button>Delete</button>
     </form>
+    <button onClick="showDialog()">Edit</button>
+    <dialog id="editwindow">
+      <form
+        action="/pianists/<%= pianist._id %>?_method=PUT"
+        method="post"
+        style="display: inline"
+      >
+        <label for="name">Pianist Name : </label>
+        <input type="text" name="name" placeholder="<%= pianist.name%>" />
+        <br />
+        <label for="country">Country of Birth : </label>
+        <input type="text" name="country" placeholder="<%= pianist.country%>" />
+        <br />
+        <button>Submit</button>
+      </form>
+      <button onClick="closeDialog()">Close</button>
+    </dialog>
+    <script>
+      const dialog = document.getElementById("editwindow");
+
+      function showDialog() {
+        dialog.show();
+      }
+
+      function closeDialog() {
+        dialog.close();
+      }
+    </script>
   </body>
 </html>

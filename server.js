@@ -51,6 +51,17 @@ app.delete("/pianists/:_id", async (req, res) => {
   res.redirect("/pianists");
 });
 
+app.put("/pianists/:_id", async (req, res) => {
+  const { name, country } = req.body;
+  const editPianist = {
+    name: name,
+    country: country,
+  };
+  await Pianist.findByIdAndUpdate(req.params._id, editPianist, { new: true });
+  res.redirect("/pianists/");
+  // res.json(updatedPet); //? -> 200, 400, 404
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
